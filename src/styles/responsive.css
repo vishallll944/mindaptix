@@ -1,0 +1,375 @@
+/* ============================================
+   Responsive — 768 / 1024 / 1280 (+ mobile)
+   ============================================ */
+
+/* ---------- Base mobile refinements ---------- */
+@media (max-width: 767px) {
+  .container,
+  .container-wide {
+    padding-inline: 1rem;
+  }
+
+  .section {
+    padding-block: 3.5rem;
+  }
+
+  .section-lg {
+    padding-block: 4.25rem;
+  }
+
+  .section-title {
+    max-width: none;
+  }
+
+  .btn-group,
+  .hero__actions,
+  .final-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-group .btn,
+  .hero__actions .btn,
+  .final-cta__actions .btn {
+    width: 100%;
+  }
+
+  .announcement-bar {
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-block: 0.65rem;
+    font-size: 0.75rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-block: 3.25rem 3.75rem;
+  }
+
+  .hero__title {
+    max-width: none;
+  }
+
+  .hero__visual {
+    min-height: 340px;
+  }
+
+  .hero-float--1 {
+    top: 0;
+    right: 0;
+  }
+
+  .hero-float--2 {
+    left: 0;
+    bottom: 12%;
+  }
+
+  .hero-float--3,
+  .hero-float--4 {
+    display: none;
+  }
+
+  .hero-dashboard__metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .search-future__platforms {
+    grid-template-columns: 1fr;
+  }
+
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .locations__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-card__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .case-card__media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .perf-metrics,
+  .perf-health {
+    grid-template-columns: 1fr;
+  }
+
+  .audit-cta__title {
+    max-width: none;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mega-menu {
+    display: none;
+  }
+}
+
+/* ---------- Tablet: 768+ ---------- */
+@media (min-width: 768px) {
+  .container,
+  .container-wide {
+    padding-inline: 1.75rem;
+  }
+
+  .section {
+    padding-block: 4.5rem;
+  }
+
+  .trust-stats__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .search-future__platforms {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .framework__track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .audit-cta__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .industries-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .locations__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .case-studies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .perf-metrics {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .live-strategist__card {
+    flex-direction: row;
+    text-align: left;
+    max-width: 720px;
+    padding: 2.25rem;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+
+  .site-footer__bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .contact-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }
+
+  .contact-form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-story {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+
+  .service-detail__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case-card__metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Desktop: 1024+ ---------- */
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: 2rem;
+  }
+
+  .section {
+    padding-block: 5.5rem;
+  }
+
+  .section-lg {
+    padding-block: 7rem;
+  }
+
+  .framework__track {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.15rem;
+  }
+
+  .framework-core__connector {
+    display: block;
+    position: absolute;
+    top: 2.25rem;
+    right: -0.7rem;
+    width: 1.4rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--border), var(--accent));
+    z-index: 1;
+  }
+
+  .framework-core:last-child .framework-core__connector {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .industries-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .locations__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .case-studies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .case-study-featured {
+    grid-column: 1 / -1;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .hero-float--3,
+  .hero-float--4 {
+    display: flex;
+  }
+
+  .perf-panel {
+    padding: 2rem;
+  }
+}
+
+/* ---------- Wide: 1280+ ---------- */
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--container);
+  }
+
+  .container-wide {
+    max-width: var(--container-wide);
+    padding-inline: 2rem;
+  }
+
+  .section {
+    padding-block: 6rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .industries-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .locations__grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .hero__title {
+    font-size: 3.75rem;
+  }
+
+  .mega-menu {
+    width: 920px;
+  }
+
+  .mega-menu__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Extra-wide polish ---------- */
+@media (min-width: 1440px) {
+  .hero {
+    padding-block: 6rem 7rem;
+  }
+
+  .section-lg {
+    padding-block: 7.5rem;
+  }
+}
+
+/* ---------- Prevent horizontal overflow ---------- */
+@media (max-width: 1279px) {
+  .hero-float {
+    max-width: calc(100% - 1rem);
+  }
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
