@@ -51,7 +51,7 @@ function OrbitRings() {
         <meshBasicMaterial color="#2563EB" transparent opacity={0.35} />
       </Torus>
       <Torus ref={ring2} args={[2.1, 0.015, 16, 80]} rotation={[0.4, Math.PI / 4, 0]}>
-        <meshBasicMaterial color="#7C3AED" transparent opacity={0.25} />
+        <meshBasicMaterial color="#0D9488" transparent opacity={0.25} />
       </Torus>
     </group>
   );
@@ -118,7 +118,7 @@ function Scene({
     <group ref={groupRef}>
       <ambientLight intensity={0.55} />
       <pointLight position={[4, 4, 4]} intensity={1.1} color="#2563EB" />
-      <pointLight position={[-4, -2, 3]} intensity={0.7} color="#7C3AED" />
+      <pointLight position={[-4, -2, 3]} intensity={0.7} color="#0D9488" />
 
       <ParticleField />
       <OrbitRings />

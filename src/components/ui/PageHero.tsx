@@ -13,7 +13,7 @@ export function PageHero({ eyebrow, title, lead, children, className = "" }: Pag
     <section className={`relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20 ${className}`}>
       <div className="absolute inset-0 gradient-soft" />
       <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-purple-200/30 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-teal-200/30 blur-3xl" />
 
       <div className="relative mx-auto max-w-4xl px-5 text-center">
         <span className="mb-4 inline-block rounded-full border border-blue-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-blue">

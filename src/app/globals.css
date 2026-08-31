@@ -9,14 +9,14 @@
 @import "../styles/pricing.css";
 @import "../styles/responsive.css";
 
-/* Mindaptix theme — purple primary accent */
+/* Mindaptix theme — teal primary accent */
 :root {
-  --accent: #7c3aed;
-  --accent-dark: #6d28d9;
-  --accent-soft: rgba(124, 58, 237, 0.12);
-  --accent-glow: rgba(124, 58, 237, 0.35);
-  --shadow-accent: 0 8px 28px rgba(124, 58, 237, 0.35);
-  --focus-ring: 0 0 0 3px rgba(124, 58, 237, 0.45);
+  --accent: #0d9488;
+  --accent-dark: #0f766e;
+  --accent-soft: rgba(13, 148, 136, 0.12);
+  --accent-glow: rgba(13, 148, 136, 0.35);
+  --shadow-accent: 0 8px 28px rgba(13, 148, 136, 0.35);
+  --focus-ring: 0 0 0 3px rgba(13, 148, 136, 0.45);
 }
 
 /* Guard against any element stretching the page horizontally */
@@ -41,7 +41,7 @@ body {
 }
 
 .hero__glow--left {
-  background: rgba(124, 58, 237, 0.08);
+  background: rgba(13, 148, 136, 0.08);
 }
 
 .hero__glow--right {
@@ -62,11 +62,11 @@ body {
 }
 
 .hero__eyebrow {
-  color: #6d28d9;
+  color: #0f766e;
 }
 
 .hero__eyebrow-line {
-  background: #7c3aed;
+  background: #0d9488;
 }
 
 .hero__proof {
@@ -86,14 +86,14 @@ body {
 }
 
 .hero-dashboard {
-  background: linear-gradient(160deg, #4c1d95, #2e1065);
+  background: linear-gradient(160deg, #115e59, #0c3840);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Inner page heroes + services listing */
 .page-hero {
   background:
-    radial-gradient(ellipse at top right, rgba(124, 58, 237, 0.12), transparent 52%),
+    radial-gradient(ellipse at top right, rgba(13, 148, 136, 0.12), transparent 52%),
     radial-gradient(ellipse at bottom left, rgba(37, 99, 235, 0.06), transparent 45%),
     var(--surface);
 }
@@ -132,8 +132,8 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #f5f3ff;
-  color: #6d28d9;
+  background: #f0fdfa;
+  color: #0f766e;
   flex-shrink: 0;
 }
 
@@ -163,7 +163,7 @@ body {
 .hero-stats-bar__value {
   font-size: 0.875rem;
   font-weight: 800;
-  color: #7c3aed;
+  color: #0d9488;
   letter-spacing: -0.02em;
 }
 
@@ -198,16 +198,16 @@ body {
 }
 
 .announcement-bar__contact:hover {
-  color: #7c3aed;
+  color: #0d9488;
 }
 
 @theme {
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8fafc;
   --color-accent-blue: #2563eb;
-  --color-accent-purple: #7c3aed;
+  --color-accent-purple: #0d9488;
   --color-accent-cyan: #06b6d4;
-  --color-accent-orange: #7c3aed;
+  --color-accent-orange: #0d9488;
   --color-text-primary: #0f172a;
   --color-text-secondary: #64748b;
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
@@ -215,20 +215,20 @@ body {
   --radius-2xl: 1.5rem;
   --radius-3xl: 2rem;
   --shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.06);
-  --shadow-glow: 0 8px 40px rgba(124, 58, 237, 0.15);
+  --shadow-glow: 0 8px 40px rgba(13, 148, 136, 0.15);
 }
 
 @layer utilities {
   .gradient-soft {
-    background: linear-gradient(135deg, #f5f3ff, #ffffff, #eff6ff);
+    background: linear-gradient(135deg, #f0fdfa, #ffffff, #eff6ff);
   }
 
   .gradient-cta {
-    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #eff6ff 100%);
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #eff6ff 100%);
   }
 
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #6d28d9, #2563eb, #06b6d4);
+    background-image: linear-gradient(135deg, #0f766e, #2563eb, #06b6d4);
   }
 }

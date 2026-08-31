@@ -32,12 +32,12 @@ export function Services() {
     <section id="services" className="relative py-24 md:py-32">
       <div className="absolute inset-0 bg-bg-secondary/50" />
       <div className="pointer-events-none absolute left-0 top-1/4 h-96 w-96 rounded-full bg-blue-200/20 blur-3xl" />
-      <div className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 rounded-full bg-purple-200/20 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 rounded-full bg-teal-200/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
-            <span className="mb-4 inline-block rounded-full border border-purple-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-purple">
+            <span className="mb-4 inline-block rounded-full border border-teal-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-purple">
               Services
             </span>
             <h2 className="text-4xl font-extrabold tracking-tight text-text-primary md:text-5xl">
@@ -60,7 +60,7 @@ export function Services() {
                   href={service.href}
                   className="group relative flex h-full min-h-[200px] flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-glow"
                 >
-                  <div className="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-blue-50 to-teal-50 opacity-0 transition-opacity group-hover:opacity-100" />
 
                   <span className="text-xs font-bold text-accent-blue/60">{service.number}</span>
                   <div className="mt-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent-blue/10 to-accent-purple/10 text-accent-blue transition-transform group-hover:scale-110">

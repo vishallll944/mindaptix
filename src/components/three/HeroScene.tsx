@@ -7,9 +7,9 @@ import * as THREE from "three";
 
 const ORBIT_TAGS = [
   { label: "SEO", color: "#2563EB" },
-  { label: "AI", color: "#7C3AED" },
+  { label: "AI", color: "#0D9488" },
   { label: "GEO", color: "#06B6D4" },
-  { label: "AEO", color: "#8B5CF6" },
+  { label: "AEO", color: "#14B8A6" },
   { label: "CRO", color: "#0EA5E9" },
   { label: "PPC", color: "#6366F1" },
 ];
@@ -21,7 +21,7 @@ function ParticleField({ count = 100 }: { count?: number }) {
     const col = new Float32Array(count * 3);
     const palette = [
       new THREE.Color("#2563EB"),
-      new THREE.Color("#7C3AED"),
+      new THREE.Color("#0D9488"),
       new THREE.Color("#06B6D4"),
     ];
     for (let i = 0; i < count; i++) {
@@ -83,7 +83,7 @@ function CoreSphere() {
       {/* Outer soft glow shell */}
       <mesh ref={glowRef}>
         <sphereGeometry args={[1.15, 48, 48]} />
-        <meshBasicMaterial color="#7C3AED" transparent opacity={0.08} />
+        <meshBasicMaterial color="#0D9488" transparent opacity={0.08} />
       </mesh>
 
       {/* Wireframe shell */}
@@ -272,7 +272,7 @@ function Scene({ mouse }: { mouse: MutableRefObject<{ x: number; y: number }> })
     <group ref={groupRef}>
       <ambientLight intensity={0.55} />
       <pointLight position={[4, 4, 5]} intensity={1.4} color="#2563EB" />
-      <pointLight position={[-4, -2, 3]} intensity={1} color="#7C3AED" />
+      <pointLight position={[-4, -2, 3]} intensity={1} color="#0D9488" />
       <pointLight position={[0, 3, -2]} intensity={0.6} color="#06B6D4" />
 
       <ParticleField count={90} />
@@ -288,7 +288,7 @@ function Scene({ mouse }: { mouse: MutableRefObject<{ x: number; y: number }> })
       />
       <OrbitRing
         radius={1.95}
-        color="#7C3AED"
+        color="#0D9488"
         tilt={[0.55, Math.PI / 3, 0.3]}
         speed={-0.22}
         tube={0.016}
@@ -304,8 +304,8 @@ function Scene({ mouse }: { mouse: MutableRefObject<{ x: number; y: number }> })
       {/* Nodes traveling on orbits */}
       <OrbitingNode radius={1.55} speed={0.9} offset={0} color="#2563EB" size={0.09} />
       <OrbitingNode radius={1.55} speed={0.9} offset={Math.PI} color="#60A5FA" size={0.07} />
-      <OrbitingNode radius={1.95} speed={-0.65} offset={1} color="#7C3AED" size={0.1} tilt={0.55} />
-      <OrbitingNode radius={1.95} speed={-0.65} offset={1 + Math.PI} color="#A78BFA" size={0.07} tilt={0.55} />
+      <OrbitingNode radius={1.95} speed={-0.65} offset={1} color="#0D9488" size={0.1} tilt={0.55} />
+      <OrbitingNode radius={1.95} speed={-0.65} offset={1 + Math.PI} color="#5EEAD4" size={0.07} tilt={0.55} />
       <OrbitingNode radius={2.35} speed={0.45} offset={2} color="#06B6D4" size={0.08} tilt={1.1} />
 
       {/* Floating service tags */}
@@ -329,7 +329,7 @@ function Scene({ mouse }: { mouse: MutableRefObject<{ x: number; y: number }> })
       </Float>
       <Float speed={1.8} floatIntensity={0.5}>
         <Sphere args={[0.08, 16, 16]} position={[2.1, -1.1, 0.6]}>
-          <meshStandardMaterial color="#7C3AED" emissive="#7C3AED" emissiveIntensity={0.9} />
+          <meshStandardMaterial color="#0D9488" emissive="#0D9488" emissiveIntensity={0.9} />
         </Sphere>
       </Float>
       <Float speed={1.2} floatIntensity={0.6}>
@@ -355,7 +355,7 @@ export function HeroSceneCanvas() {
     >
       {/* Soft glow behind the canvas */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-56 w-56 rounded-full bg-gradient-to-br from-blue-400/20 via-purple-400/15 to-cyan-400/20 blur-3xl" />
+        <div className="h-56 w-56 rounded-full bg-gradient-to-br from-blue-400/20 via-teal-400/15 to-cyan-400/20 blur-3xl" />
       </div>
 
       <Canvas

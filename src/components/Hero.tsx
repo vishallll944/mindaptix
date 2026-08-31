@@ -13,7 +13,7 @@ export function Hero() {
       {/* Background blobs */}
       <div className="pointer-events-none absolute inset-0 gradient-soft" />
       <div className="pointer-events-none absolute -left-32 top-20 h-96 w-96 animate-blob rounded-full bg-blue-200/30 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-20 h-80 w-80 animate-blob rounded-full bg-purple-200/30 blur-3xl [animation-delay:3s]" />
+      <div className="pointer-events-none absolute -right-32 bottom-20 h-80 w-80 animate-blob rounded-full bg-teal-200/30 blur-3xl [animation-delay:3s]" />
       <div className="pointer-events-none absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 animate-blob rounded-full bg-cyan-100/40 blur-3xl [animation-delay:6s]" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:gap-8">
@@ -82,8 +82,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-200/40 via-purple-100/30 to-cyan-200/40 blur-2xl" />
-            <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-gradient-to-br from-white/70 via-blue-50/40 to-purple-50/40 p-1 shadow-[0_20px_60px_rgba(37,99,235,0.12)] backdrop-blur-sm">
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-200/40 via-teal-100/30 to-cyan-200/40 blur-2xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-white/70 bg-gradient-to-br from-white/70 via-blue-50/40 to-teal-50/40 p-1 shadow-[0_20px_60px_rgba(37,99,235,0.12)] backdrop-blur-sm">
               <HeroThreeScene />
             </div>
           </motion.div>

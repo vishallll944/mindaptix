@@ -31,7 +31,7 @@
   height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
   flex-shrink: 0;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .navbar__logo:hover .navbar__logo-mark {
-  background: #4c1d95;
+  background: #115e59;
 }
 
 /* ---------- Desktop nav ---------- */
@@ -369,7 +369,7 @@
   padding: 1.25rem 1.15rem;
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(ellipse at top right, rgba(124, 58, 237, 0.25), transparent 60%),
+    radial-gradient(ellipse at top right, rgba(13, 148, 136, 0.25), transparent 60%),
     var(--dark);
   color: #fff;
 }

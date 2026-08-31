@@ -21,7 +21,7 @@ export function WhyChooseUs() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:gap-20">
         <FadeIn direction="right">
           <div className="relative mx-auto aspect-square max-w-lg">
-            <div className="absolute inset-0 animate-blob rounded-full bg-gradient-to-br from-blue-200/40 to-purple-200/40 blur-3xl" />
+            <div className="absolute inset-0 animate-blob rounded-full bg-gradient-to-br from-blue-200/40 to-teal-200/40 blur-3xl" />
             <div className="relative flex h-full items-center justify-center rounded-[2.5rem] border border-white/60 bg-white/50 p-8 shadow-glow backdrop-blur-sm">
               <motion.div
                 animate={{ rotate: 360 }}
@@ -31,7 +31,7 @@ export function WhyChooseUs() {
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                className="absolute h-[68%] w-[68%] rounded-full border border-purple-200/60"
+                className="absolute h-[68%] w-[68%] rounded-full border border-teal-200/60"
               />
               <div className="relative z-10 flex h-44 w-44 flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-accent-blue to-accent-purple text-white shadow-xl">
                 <p className="text-4xl font-extrabold">360°</p>
@@ -63,7 +63,7 @@ export function WhyChooseUs() {
 
         <div>
           <FadeIn>
-            <span className="mb-4 inline-block rounded-full border border-purple-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-purple">
+            <span className="mb-4 inline-block rounded-full border border-teal-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-purple">
               Why Choose Us
             </span>
             <h2 className="text-4xl font-extrabold tracking-tight text-text-primary md:text-5xl">

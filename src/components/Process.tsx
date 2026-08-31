@@ -17,8 +17,8 @@ const STEP_ICONS: LucideIcon[] = [Search, Lightbulb, Rocket, LineChart, Trending
 
 const STEP_COLORS = [
   "from-blue-500 to-blue-600",
-  "from-violet-500 to-purple-600",
-  "from-purple-500 to-fuchsia-600",
+  "from-teal-500 to-teal-600",
+  "from-teal-500 to-cyan-600",
   "from-cyan-500 to-blue-500",
   "from-emerald-500 to-teal-600",
 ];
@@ -36,7 +36,7 @@ export function Process() {
       <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/40 to-white" />
       <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-200 to-transparent" />
       <div className="pointer-events-none absolute -left-40 top-1/3 h-80 w-80 rounded-full bg-blue-200/25 blur-3xl" />
-      <div className="pointer-events-none absolute -right-40 bottom-0 h-72 w-72 rounded-full bg-purple-200/25 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-72 w-72 rounded-full bg-teal-200/25 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5">
         <FadeIn>

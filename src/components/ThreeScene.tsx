@@ -10,7 +10,7 @@ const GrowthSphereCanvas = dynamic(
     ssr: false,
     loading: () => (
       <div className="flex h-[360px] items-center justify-center md:h-[420px]">
-        <div className="h-12 w-12 animate-pulse rounded-full bg-purple-100" />
+        <div className="h-12 w-12 animate-pulse rounded-full bg-teal-100" />
       </div>
     ),
   }

@@ -17,10 +17,10 @@ import { FadeIn } from "@/components/ui/FadeInView";
 
 const PLATFORMS: { name: string; icon: LucideIcon; color: string; angle: number }[] = [
   { name: "Google Search", icon: Search, color: "#2563EB", angle: -90 },
-  { name: "AI Overviews", icon: Sparkles, color: "#7C3AED", angle: -30 },
+  { name: "AI Overviews", icon: Sparkles, color: "#0D9488", angle: -30 },
   { name: "ChatGPT", icon: Bot, color: "#10B981", angle: 30 },
   { name: "Gemini", icon: Gem, color: "#06B6D4", angle: 90 },
-  { name: "Perplexity", icon: Orbit, color: "#8B5CF6", angle: 150 },
+  { name: "Perplexity", icon: Orbit, color: "#0EA5E9", angle: 150 },
   { name: "Voice Search", icon: Mic, color: "#F59E0B", angle: 210 },
 ];
 
@@ -40,7 +40,7 @@ const PILLARS: {
     title: "GEO",
     desc: "Get recommended inside generative AI answers and summaries.",
     icon: Bot,
-    gradient: "from-violet-500 to-purple-600",
+    gradient: "from-teal-500 to-teal-600",
   },
   {
     title: "AEO",
@@ -62,7 +62,7 @@ function OrbitDiagram() {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[420px]">
       {/* Outer glow */}
-      <div className="absolute inset-8 rounded-full bg-gradient-to-br from-blue-100/60 to-purple-100/60 blur-2xl" />
+      <div className="absolute inset-8 rounded-full bg-gradient-to-br from-blue-100/60 to-teal-100/60 blur-2xl" />
 
       {/* Orbit ring */}
       <motion.div
@@ -73,7 +73,7 @@ function OrbitDiagram() {
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-10 rounded-full border border-purple-200/40"
+        className="absolute inset-10 rounded-full border border-teal-200/40"
       />
 
       {/* Center hub */}
@@ -165,12 +165,12 @@ export function AISearchSection() {
     <section id="ai-search" className="relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 gradient-soft" />
       <div className="pointer-events-none absolute left-0 top-1/4 h-96 w-96 rounded-full bg-blue-200/20 blur-3xl" />
-      <div className="pointer-events-none absolute right-0 bottom-1/4 h-80 w-80 rounded-full bg-purple-200/20 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 bottom-1/4 h-80 w-80 rounded-full bg-teal-200/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5">
         <FadeIn>
           <div className="mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-block rounded-full border border-purple-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-purple">
+            <span className="mb-4 inline-block rounded-full border border-teal-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-purple">
               AI Search Ecosystem
             </span>
             <h2 className="text-4xl font-extrabold tracking-tight text-text-primary md:text-5xl lg:text-6xl">

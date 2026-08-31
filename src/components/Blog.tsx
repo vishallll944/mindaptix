@@ -6,7 +6,7 @@ import { BLOG } from "@/data/blog.js";
 import { FadeIn } from "@/components/ui/FadeInView";
 
 const TAG_COLORS: Record<string, string> = {
-  "AI SEO": "bg-purple-50 text-accent-purple",
+  "AI SEO": "bg-teal-50 text-accent-purple",
   "Local SEO": "bg-cyan-50 text-accent-cyan",
   "Digital Marketing": "bg-blue-50 text-accent-blue",
 };

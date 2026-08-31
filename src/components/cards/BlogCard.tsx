@@ -16,8 +16,8 @@ export type BlogCardProps = {
 
 const TAG_STYLES: Record<string, { badge: string; gradient: string }> = {
   "AI SEO": {
-    badge: "bg-purple-100 text-purple-700",
-    gradient: "from-violet-600 via-purple-600 to-indigo-700",
+    badge: "bg-teal-100 text-teal-700",
+    gradient: "from-teal-600 via-teal-600 to-indigo-700",
   },
   "Local SEO": {
     badge: "bg-cyan-100 text-cyan-700",
@@ -25,7 +25,7 @@ const TAG_STYLES: Record<string, { badge: string; gradient: string }> = {
   },
   "Digital Marketing": {
     badge: "bg-blue-100 text-blue-700",
-    gradient: "from-blue-500 via-indigo-500 to-purple-600",
+    gradient: "from-blue-500 via-indigo-500 to-teal-600",
   },
 };
 
@@ -42,7 +42,7 @@ export function BlogCard({
 }: BlogCardProps) {
   const styles = TAG_STYLES[tag] ?? {
     badge: "bg-slate-100 text-slate-700",
-    gradient: "from-blue-500 via-indigo-500 to-purple-600",
+    gradient: "from-blue-500 via-indigo-500 to-teal-600",
   };
 
   return (

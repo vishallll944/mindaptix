@@ -31,7 +31,7 @@ const ServiceHeroScene = dynamic(
     ssr: false,
     loading: () => (
       <div className="flex h-[280px] items-center justify-center sm:h-[320px] lg:h-[380px]">
-        <div className="h-14 w-14 animate-pulse rounded-full bg-gradient-to-br from-blue-100 to-purple-100" />
+        <div className="h-14 w-14 animate-pulse rounded-full bg-gradient-to-br from-blue-100 to-teal-100" />
       </div>
     ),
   },
@@ -88,7 +88,7 @@ export function ServiceDetailView({
       <section className="relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20">
         <div className="absolute inset-0 gradient-soft" />
         <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-200/30 blur-3xl" />
-        <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-purple-200/30 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-teal-200/30 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-5">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
@@ -123,7 +123,7 @@ export function ServiceDetailView({
                 {show3d ? (
                   <ServiceHeroScene tags={tags} />
                 ) : (
-                  <div className="flex h-[280px] flex-col items-center justify-center gap-4 rounded-[1.5rem] bg-gradient-to-br from-blue-50 to-purple-50 sm:h-[320px]">
+                  <div className="flex h-[280px] flex-col items-center justify-center gap-4 rounded-[1.5rem] bg-gradient-to-br from-blue-50 to-teal-50 sm:h-[320px]">
                     <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-blue to-accent-purple text-white shadow-lg">
                       <Icon className="h-10 w-10" />
                     </div>
@@ -230,7 +230,7 @@ export function ServiceDetailView({
             {PROCESS.map((step, i) => (
               <FadeIn key={step.step} delay={i * 0.08}>
                 <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-blue-100 hover:shadow-glow">
-                  <div className="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-blue-50 to-teal-50 opacity-0 transition-opacity group-hover:opacity-100" />
                   <span className="text-xs font-bold text-accent-blue/70">STEP {step.step}</span>
                   <h3 className="mt-3 text-lg font-bold text-text-primary">{step.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{step.desc}</p>

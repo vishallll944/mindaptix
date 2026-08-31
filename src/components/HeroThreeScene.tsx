@@ -10,7 +10,7 @@ const HeroSceneCanvas = dynamic(
     ssr: false,
     loading: () => (
       <div className="flex h-[380px] items-center justify-center md:h-[460px]">
-        <div className="h-14 w-14 animate-pulse rounded-full bg-gradient-to-br from-blue-200 to-purple-200" />
+        <div className="h-14 w-14 animate-pulse rounded-full bg-gradient-to-br from-blue-200 to-teal-200" />
       </div>
     ),
   }

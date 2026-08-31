@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Download, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Download, TrendingUp } from "lucide-react";
 import { CASE_STUDIES, getCaseStudy } from "@/data/caseStudies.js";
 import { SITE } from "@/data/site.js";
-import { CTASection } from "@/components/CTASection";
-import { FadeIn } from "@/components/ui/FadeInView";
+import { Button } from "@/components/ui/Button";
+import { CaseStudyCard } from "@/components/cards/CaseStudyCard";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FinalCTA } from "@/sections/FinalCTA";
 import type { CaseStudyMetric } from "@/components/cards/CaseStudyCard";
 
 type PageProps = {
@@ -36,6 +39,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function rankModifier(ranking: number) {
+  if (ranking <= 3) return "csd-rank--top";
+  if (ranking <= 10) return "csd-rank--page";
+  return "csd-rank--rest";
+}
+
+function gainLabel(baseline: string, ranking: number) {
+  const unseen = baseline.toLowerCase().includes("not in");
+  if (unseen && ranking <= 3) return "New top 3";
+  if (unseen && ranking <= 10) return "New to page 1";
+  if (unseen) return "New ranking";
+  return "Improved";
+}
+
 export default async function CaseStudyDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const study = getCaseStudy(slug);
@@ -44,169 +61,131 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const highlightMetrics = (study.metrics as CaseStudyMetric[]).filter(
+    (metric) => metric.label !== "Ranking Period",
+  );
+  const related = CASE_STUDIES.filter((item) => item.slug !== study.slug).slice(0, 2);
+
   return (
     <main>
-      <section className="relative overflow-hidden pt-28 pb-12 md:pt-36">
-        <div className="absolute inset-0 gradient-soft" />
-        <div className="relative mx-auto max-w-5xl px-5">
-          <FadeIn>
-            <Link
-              href="/case-studies"
-              className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-text-secondary transition-colors hover:text-accent-blue"
-            >
-              <ArrowLeft className="h-4 w-4" />
+      <section className="csd-hero">
+        <div className="container">
+          <FadeIn className="csd-hero__inner">
+            <Link href="/case-studies" className="csd-back">
+              <ArrowLeft size={15} aria-hidden />
               All case studies
             </Link>
 
-            <div className="grid items-center gap-10 lg:grid-cols-2">
-              <div>
-                <span className="mb-4 inline-block rounded-full border border-blue-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-blue">
-                  {study.tag}
-                </span>
-                <h1 className="text-3xl font-extrabold tracking-tight text-text-primary md:text-4xl lg:text-5xl">
-                  {study.title}
-                </h1>
-                <p className="mt-4 text-lg leading-relaxed text-text-secondary">{study.summary}</p>
+            <div className="csd-hero__grid">
+              <div className="csd-hero__copy">
+                <p className="eyebrow">{study.tag}</p>
+                <h1 className="csd-hero__title">{study.title}</h1>
+                <p className="csd-hero__summary">{study.summary}</p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href={study.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-2xl bg-accent-blue px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition-all hover:bg-blue-700"
-                  >
+                <div className="csd-hero__actions">
+                  <Button href={study.website} external>
                     Visit {study.websiteLabel}
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
+                    <ArrowUpRight className="btn-arrow" aria-hidden />
+                  </Button>
                   {study.pdfHref ? (
-                    <a
-                      href={study.pdfHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-text-primary transition-all hover:border-accent-blue/30 hover:shadow-soft"
-                    >
+                    <Button href={study.pdfHref} variant="outline" external>
                       Download PDF
-                      <Download className="h-4 w-4" />
-                    </a>
+                      <Download size={16} aria-hidden />
+                    </Button>
                   ) : null}
                 </div>
+
+                <ul className="csd-chips">
+                  <li className="csd-chip">
+                    <span>Platform</span>
+                    {study.platform}
+                  </li>
+                  <li className="csd-chip">
+                    <span>Market</span>
+                    {study.market}
+                  </li>
+                  <li className="csd-chip">
+                    <span>Period</span>
+                    {study.rankingPeriod}
+                  </li>
+                </ul>
               </div>
 
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-glow">
-                <Image
-                  src={study.image}
-                  alt={study.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+              <div className="csd-hero__media">
+                <div className="csd-hero__frame">
+                  <Image
+                    src={study.image}
+                    alt={study.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 900px) 100vw, 50vw"
+                    priority
+                  />
+                  <div className="csd-hero__stats">
+                    {highlightMetrics.map((metric) => (
+                      <div key={metric.label} className="csd-stat">
+                        <span className="csd-stat__value">{metric.value}</span>
+                        <span className="csd-stat__label">{metric.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      <section className="pb-12">
-        <div className="mx-auto max-w-5xl px-5">
+      <section className="section csd-rankings">
+        <div className="container">
           <FadeIn>
-            <div className="grid gap-4 rounded-3xl border border-slate-100 bg-white p-6 shadow-soft sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { label: "Platform", value: study.platform },
-                { label: "Market", value: study.market },
-                { label: "Ranking period", value: study.rankingPeriod },
-                {
-                  label: "Website",
-                  value: study.websiteLabel,
-                  href: study.website,
-                },
-              ].map((item) => (
-                <div key={item.label} className="rounded-2xl bg-slate-50 px-4 py-4">
-                  <p className="text-xs font-bold uppercase tracking-wider text-text-secondary">
-                    {item.label}
-                  </p>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 inline-flex items-center gap-1 font-bold text-accent-blue hover:underline"
-                    >
-                      {item.value}
-                      <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                  ) : (
-                    <p className="mt-1 font-bold text-text-primary">{item.value}</p>
-                  )}
-                </div>
-              ))}
+            <div className="csd-rankings__head">
+              <SectionHeading
+                eyebrow="Results"
+                title="Keyword rankings"
+                subtitle={`Baseline vs. current rankings for tracked keywords (${study.rankingPeriod}).`}
+              />
+              <div className="csd-legend" aria-hidden>
+                <span className="csd-legend__item">
+                  <i className="csd-legend__dot csd-legend__dot--top" />
+                  Top 3
+                </span>
+                <span className="csd-legend__item">
+                  <i className="csd-legend__dot csd-legend__dot--page" />
+                  Page 1
+                </span>
+                <span className="csd-legend__item">
+                  <i className="csd-legend__dot csd-legend__dot--rest" />
+                  Page 2+
+                </span>
+              </div>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {study.metrics.map((metric: CaseStudyMetric) => (
-                <div
-                  key={metric.label}
-                  className="gradient-border rounded-2xl bg-white p-6 text-center shadow-soft"
-                >
-                  <p className="text-3xl font-extrabold tracking-tight text-text-primary">
-                    {metric.value}
-                  </p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-text-secondary">
-                    {metric.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      <section className="pb-24">
-        <div className="mx-auto max-w-5xl px-5">
-          <FadeIn>
-            <h2 className="text-2xl font-extrabold tracking-tight text-text-primary md:text-3xl">
-              Keyword rankings
-            </h2>
-            <p className="mt-2 text-text-secondary">
-              Baseline vs. current rankings for tracked keywords ({study.rankingPeriod}).
-            </p>
-
-            <div className="mt-8 overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-soft">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[560px] text-sm">
+            <div className="csd-table-wrap">
+              <div className="csd-table-scroll">
+                <table className="csd-table">
                   <thead>
-                    <tr className="border-b border-slate-100 bg-slate-50/80">
-                      <th className="px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-text-secondary">
-                        Keyword
-                      </th>
-                      <th className="px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-text-secondary">
-                        Baseline
-                      </th>
-                      <th className="px-5 py-4 text-left text-xs font-bold uppercase tracking-wider text-text-secondary">
-                        Ranking
-                      </th>
+                    <tr>
+                      <th>Keyword</th>
+                      <th>Baseline</th>
+                      <th>Current rank</th>
+                      <th>Movement</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {study.keywords.map((row: KeywordRow, i: number) => (
-                      <tr
-                        key={row.keyword}
-                        className={`border-b border-slate-50 transition-colors hover:bg-blue-50/40 ${
-                          i % 2 === 0 ? "bg-white" : "bg-slate-50/30"
-                        }`}
-                      >
-                        <td className="px-5 py-3.5 font-medium text-text-primary">{row.keyword}</td>
-                        <td className="px-5 py-3.5 text-text-secondary">{row.baseline}</td>
-                        <td className="px-5 py-3.5">
-                          <span
-                            className={`inline-flex min-w-[2.5rem] items-center justify-center rounded-full px-2.5 py-1 text-xs font-extrabold ${
-                              row.ranking <= 3
-                                ? "bg-emerald-100 text-emerald-700"
-                                : "bg-blue-100 text-blue-700"
-                            }`}
-                          >
+                    {study.keywords.map((row: KeywordRow) => (
+                      <tr key={row.keyword}>
+                        <td className="csd-table__kw">{row.keyword}</td>
+                        <td className="csd-table__base">{row.baseline}</td>
+                        <td>
+                          <span className={`csd-rank ${rankModifier(row.ranking)}`}>
                             #{row.ranking}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="csd-gain">
+                            <TrendingUp size={13} aria-hidden />
+                            {gainLabel(row.baseline, row.ranking)}
                           </span>
                         </td>
                       </tr>
@@ -219,7 +198,37 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <CTASection
+      {related.length > 0 ? (
+        <section className="section csd-related">
+          <div className="container">
+            <FadeIn>
+              <SectionHeading
+                eyebrow="More proof"
+                title="Related case studies"
+                subtitle="More campaigns where search visibility turned into measurable rankings."
+              />
+            </FadeIn>
+            <div className="case-studies-grid">
+              {related.map((item, index) => (
+                <FadeIn key={item.id} delay={index * 0.06}>
+                  <CaseStudyCard
+                    tag={item.tag}
+                    title={item.title}
+                    summary={item.summary}
+                    metrics={item.metrics}
+                    href={item.href}
+                    image={item.image}
+                    platform={item.platform}
+                    market={item.market}
+                  />
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <FinalCTA
         title="Want results like these?"
         subtitle="Share your site and goals — we'll map the highest-impact SEO opportunities for the next 90 days."
       />

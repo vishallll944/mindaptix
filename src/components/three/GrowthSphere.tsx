@@ -70,15 +70,15 @@ function GrowthSphereInner({
               args={[lines, 3]}
             />
           </bufferGeometry>
-          <lineBasicMaterial color="#7C3AED" transparent opacity={0.35} />
+          <lineBasicMaterial color="#0D9488" transparent opacity={0.35} />
         </lineSegments>
 
         {points.map((p, i) => (
           <mesh key={i} position={p}>
             <sphereGeometry args={[0.04, 8, 8]} />
             <meshStandardMaterial
-              color={i % 3 === 0 ? "#2563EB" : i % 3 === 1 ? "#7C3AED" : "#06B6D4"}
-              emissive={i % 3 === 0 ? "#2563EB" : i % 3 === 1 ? "#7C3AED" : "#06B6D4"}
+              color={i % 3 === 0 ? "#2563EB" : i % 3 === 1 ? "#0D9488" : "#06B6D4"}
+              emissive={i % 3 === 0 ? "#2563EB" : i % 3 === 1 ? "#0D9488" : "#06B6D4"}
               emissiveIntensity={0.6}
             />
           </mesh>
@@ -117,7 +117,7 @@ export function GrowthSphereCanvas() {
       >
         <ambientLight intensity={0.5} />
         <pointLight position={[4, 4, 4]} intensity={1} color="#2563EB" />
-        <pointLight position={[-4, -2, 2]} intensity={0.6} color="#7C3AED" />
+        <pointLight position={[-4, -2, 2]} intensity={0.6} color="#0D9488" />
         <GrowthSphereInner mouse={mouse} />
       </Canvas>
     </div>
