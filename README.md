@@ -1,44 +1,47 @@
-# 4Core Digital — Next.js Website
+# Mindaptix Digital
 
-Premium AI SEO agency site inspired by [4coredigital.com](https://4coredigital.com/), built with Next.js, custom CSS, Framer Motion, Lucide, and Recharts.
+Premium digital marketing agency website built with Next.js, React, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber.
 
-## Run locally
+## Features
+
+- Light, premium, futuristic design with glassmorphism and soft gradients
+- Interactive 3D hero and growth visualization (React Three Fiber)
+- Mobile fallbacks and `prefers-reduced-motion` support
+- Bento-grid services, AI search ecosystem diagram, scroll-triggered animations
+- Fully responsive, SEO-optimized, component-based architecture
+
+## Getting Started
 
 ```bash
-cd c:\Users\Kartik_hL\my_ai\4core-digital
 npm install
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Stack
-
-- Next.js 15 (App Router)
-- React 19
-- Custom CSS (no Tailwind)
-- Framer Motion
-- Lucide React
-- Recharts
-
-## Routes
-
-| Path | Page |
-|------|------|
-| `/` | Home |
-| `/about` | Who We Are |
-| `/services` | Services index |
-| `/services/[slug]` | Service detail |
-| `/case-studies` | Case studies |
-| `/blog` | Blog / resources |
-| `/contact` | Contact / audit form |
-
-## Share with others
-
-Keep `npm run dev` running, then in a second terminal:
+## Build
 
 ```bash
-npx cloudflared tunnel --url http://127.0.0.1:3000
+npm run build
+npm start
 ```
 
-Share the `https://….trycloudflare.com` URL it prints.
+## Tech Stack
+
+- **Next.js 15** — App Router, SSR, metadata
+- **Tailwind CSS 4** — Utility-first styling
+- **Framer Motion** — Scroll animations, transitions
+- **React Three Fiber** — 3D hero and growth sphere
+- **Lucide React** — Icons
+
+## Project Structure
+
+```
+src/
+├── app/           # Next.js pages & layout
+├── components/    # Reusable UI sections
+│   ├── three/     # 3D scenes
+│   └── ui/        # Shared UI primitives
+├── data/          # Content & configuration
+└── lib/           # Hooks & utilities
+```

@@ -42,7 +42,7 @@
   height: 420px;
   top: -80px;
   left: -120px;
-  background: rgba(139, 227, 74, 0.28);
+  background: rgba(124, 58, 237, 0.28);
 }
 
 .hero__glow--right {
@@ -220,7 +220,7 @@
   font-weight: 700;
   padding: 0.3rem 0.6rem;
   border-radius: var(--radius-full);
-  background: rgba(139, 227, 74, 0.18);
+  background: rgba(124, 58, 237, 0.18);
   color: var(--accent);
 }
 
@@ -275,7 +275,7 @@
 .hero-dashboard__bar {
   flex: 1;
   border-radius: 4px 4px 0 0;
-  background: linear-gradient(180deg, var(--accent), rgba(139, 227, 74, 0.25));
+  background: linear-gradient(180deg, var(--accent), rgba(124, 58, 237, 0.25));
   min-height: 12%;
   animation: barGrow 1.1s var(--ease) both;
 }

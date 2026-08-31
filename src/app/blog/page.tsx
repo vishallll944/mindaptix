@@ -3,12 +3,13 @@ import { BLOG } from "@/data/blog.js";
 import { SITE } from "@/data/site.js";
 import { BlogCard } from "@/components/cards/BlogCard";
 import { CTASection } from "@/components/CTASection";
-import { FadeIn } from "@/components/ui/FadeIn";
+import { PageHero } from "@/components/ui/PageHero";
+import { FadeIn } from "@/components/ui/FadeInView";
 
 export const metadata: Metadata = {
   title: `Resources & Blog | ${SITE.name}`,
   description:
-    "Guides on AI SEO, local SEO, ChatGPT visibility, Google AI Overviews, and practical growth playbooks from 4Core Digital.",
+    "Guides on AI SEO, local SEO, ChatGPT visibility, Google AI Overviews, and practical growth playbooks from Mindaptix Digital.",
 };
 
 function formatDate(iso: string) {
@@ -24,29 +25,39 @@ function formatDate(iso: string) {
 }
 
 export default function BlogPage() {
+  const [featured, ...rest] = BLOG;
+
   return (
     <main>
-      <section className="page-hero">
-        <div className="container">
-          <FadeIn>
-            <p className="eyebrow">Resources</p>
-            <h1 className="page-hero__title">Ideas for modern search growth.</h1>
-            <p className="page-hero__lead">
-              Practical guides on AI SEO, local discovery, and answer-engine visibility —
-              written for operators who care about outcomes.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Resources"
+        title="Ideas for modern search growth."
+        lead="Practical guides on AI SEO, local discovery, and answer-engine visibility — written for operators who care about outcomes."
+      />
 
-      <section className="section">
-        <div className="container">
-          <div className="blog-grid">
-            {BLOG.map((post, index) => (
-              <FadeIn key={post.id} delay={Math.min(index * 0.06, 0.24)}>
+      <section className="pb-24">
+        <div className="mx-auto max-w-7xl px-5">
+          {featured ? (
+            <FadeIn>
+              <BlogCard
+                tag={featured.tag}
+                title={featured.title}
+                excerpt={featured.excerpt}
+                read={featured.read}
+                href={featured.href}
+                date={formatDate(featured.date)}
+                featured
+              />
+            </FadeIn>
+          ) : null}
+
+          <div className={`grid gap-6 ${featured ? "mt-6" : ""} md:grid-cols-2`}>
+            {rest.map((post, index) => (
+              <FadeIn key={post.id} delay={0.08 + index * 0.06}>
                 <BlogCard
                   tag={post.tag}
                   title={post.title}
+                  excerpt={post.excerpt}
                   read={post.read}
                   href={post.href}
                   date={formatDate(post.date)}

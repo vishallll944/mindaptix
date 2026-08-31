@@ -1,30 +1,26 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { ScrollToTop } from "@/components/ScrollToTop";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { SITE } from "@/data/site.js";
 
-import "@/styles/globals.css";
-import "@/styles/navbar.css";
-import "@/styles/hero.css";
-import "@/styles/cards.css";
-import "@/styles/sections.css";
-import "@/styles/responsive.css";
+import "@/app/globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
+  variable: "--font-plus-jakarta",
 });
 
 export const metadata: Metadata = {
-  title: "AI-Powered SEO & Digital Growth Agency | 4Core Digital",
+  title: `${SITE.tagline} | ${SITE.name}`,
   description: SITE.description,
   metadataBase: new URL(SITE.url),
   openGraph: {
-    title: "AI-Powered SEO & Digital Growth Agency | 4Core Digital",
+    title: `${SITE.tagline} | ${SITE.name}`,
     description: SITE.description,
     url: SITE.url,
     siteName: SITE.name,
@@ -32,18 +28,20 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI-Powered SEO & Digital Growth Agency | 4Core Digital",
+    title: `${SITE.tagline} | ${SITE.name}`,
     description: SITE.description,
   },
   keywords: [
     "AI SEO",
-    "SEO agency",
     "GEO",
     "AEO",
-    "technical SEO",
-    "local SEO",
-    "eCommerce SEO",
-    "4Core Digital",
+    "SEO agency",
+    "digital marketing agency",
+    "Google Ads",
+    "Meta Ads",
+    "website development",
+    "conversion rate optimization",
+    "Mindaptix Digital",
   ],
 };
 
@@ -51,13 +49,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={plusJakarta.variable}>
       <body className={plusJakarta.className}>
         <AnnouncementBar />
+        <ScrollProgress />
         <Navbar />
         {children}
         <Footer />
-        <ScrollToTop />
       </body>
     </html>
   );

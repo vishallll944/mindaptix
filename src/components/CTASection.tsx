@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
+import { SITE } from "@/data/site.js";
 import { Button } from "@/components/ui/Button";
-import { FadeIn } from "@/components/ui/FadeIn";
 
 export type CTASectionProps = {
   eyebrow?: string;
@@ -14,7 +14,7 @@ export type CTASectionProps = {
 };
 
 export function CTASection({
-  eyebrow = "4Core Digital",
+  eyebrow,
   title = "Ready to build your AI-powered search strategy?",
   subtitle = "Your customers are already searching. The question is: will they find your business, or your competitors?",
   primaryLabel = "Get Your Free AI SEO Audit",
@@ -32,22 +32,20 @@ export function CTASection({
         <span />
       </div>
       <div className="container final-cta__inner">
-        <FadeIn>
-          <p className="eyebrow eyebrow-light">{eyebrow}</p>
-          <h2 className="final-cta__title">{title}</h2>
-          <p className="final-cta__text">{subtitle}</p>
-          <div className="final-cta__actions">
-            <Button href={primaryHref} size="lg">
-              {primaryLabel}
-              <ArrowRight className="btn-arrow" aria-hidden />
+        <p className="eyebrow eyebrow-light">{eyebrow ?? SITE.name}</p>
+        <h2 className="final-cta__title">{title}</h2>
+        <p className="final-cta__text">{subtitle}</p>
+        <div className="final-cta__actions">
+          <Button href={primaryHref} size="lg">
+            {primaryLabel}
+            <ArrowRight className="btn-arrow" aria-hidden />
+          </Button>
+          {secondaryLabel ? (
+            <Button href={secondaryHref} variant="secondary" size="lg" className="btn-on-dark">
+              {secondaryLabel}
             </Button>
-            {secondaryLabel ? (
-              <Button href={secondaryHref} variant="secondary" size="lg" className="btn-on-dark">
-                {secondaryLabel}
-              </Button>
-            ) : null}
-          </div>
-        </FadeIn>
+          ) : null}
+        </div>
       </div>
     </section>
   );

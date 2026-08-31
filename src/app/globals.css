@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* 4Core design system */
+@import "../styles/globals.css";
+@import "../styles/hero.css";
+@import "../styles/navbar.css";
+@import "../styles/sections.css";
+@import "../styles/cards.css";
+@import "../styles/pricing.css";
+@import "../styles/responsive.css";
+
+/* Mindaptix theme — purple primary accent */
+:root {
+  --accent: #7c3aed;
+  --accent-dark: #6d28d9;
+  --accent-soft: rgba(124, 58, 237, 0.12);
+  --accent-glow: rgba(124, 58, 237, 0.35);
+  --shadow-accent: 0 8px 28px rgba(124, 58, 237, 0.35);
+  --focus-ring: 0 0 0 3px rgba(124, 58, 237, 0.45);
+}
+
+/* Guard against any element stretching the page horizontally */
+body {
+  overflow-x: clip;
+}
+
+/* Light hero like 4Core reference */
+.hero {
+  background: linear-gradient(180deg, #ffffff 0%, #faf9f7 55%, #f5f3ef 100%);
+  color: var(--primary);
+  min-height: auto;
+  padding-block: 7rem 4rem;
+}
+
+.hero__bg-grid {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, #000 20%, transparent 75%);
+}
+
+.hero__glow--left {
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.hero__glow--right {
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.hero__title {
+  color: #0f172a;
+  max-width: 16ch;
+}
+
+.hero__title span {
+  color: #1e40af;
+}
+
+.hero__text {
+  color: #475569;
+}
+
+.hero__eyebrow {
+  color: #6d28d9;
+}
+
+.hero__eyebrow-line {
+  background: #7c3aed;
+}
+
+.hero__proof {
+  border-top-color: #e2e8f0;
+}
+
+.hero__proof-value {
+  color: #0f172a;
+}
+
+.hero__proof-label {
+  color: #64748b;
+}
+
+.hero__avatar {
+  border-color: #fff;
+}
+
+.hero-dashboard {
+  background: linear-gradient(160deg, #4c1d95, #2e1065);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Inner page heroes + services listing */
+.page-hero {
+  background:
+    radial-gradient(ellipse at top right, rgba(124, 58, 237, 0.12), transparent 52%),
+    radial-gradient(ellipse at bottom left, rgba(37, 99, 235, 0.06), transparent 45%),
+    var(--surface);
+}
+
+.services-section {
+  background:
+    linear-gradient(180deg, var(--surface) 0%, #faf9f7 100%);
+}
+
+.services-section .services-grid {
+  gap: 1.15rem;
+}
+
+/* Hero highlights grid */
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem 1.25rem;
+  margin-top: 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-highlights__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.hero-highlights__icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f5f3ff;
+  color: #6d28d9;
+  flex-shrink: 0;
+}
+
+/* Stats bar under dashboard */
+.hero-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--dark);
+  color: #fff;
+}
+
+@media (min-width: 640px) {
+  .hero-stats-bar {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.hero-stats-bar__item {
+  text-align: center;
+  padding: 0.35rem;
+}
+
+.hero-stats-bar__value {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #7c3aed;
+  letter-spacing: -0.02em;
+}
+
+.hero-stats-bar__label {
+  margin-top: 0.2rem;
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.3;
+}
+
+/* Top bar contacts */
+.announcement-bar__contacts {
+  display: none;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .announcement-bar__contacts {
+    display: flex;
+  }
+}
+
+.announcement-bar__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color var(--duration) var(--ease);
+}
+
+.announcement-bar__contact:hover {
+  color: #7c3aed;
+}
+
+@theme {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-accent-blue: #2563eb;
+  --color-accent-purple: #7c3aed;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-orange: #7c3aed;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.06);
+  --shadow-glow: 0 8px 40px rgba(124, 58, 237, 0.15);
+}
+
+@layer utilities {
+  .gradient-soft {
+    background: linear-gradient(135deg, #f5f3ff, #ffffff, #eff6ff);
+  }
+
+  .gradient-cta {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #eff6ff 100%);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #6d28d9, #2563eb, #06b6d4);
+  }
+}

@@ -3,15 +3,36 @@ import { SERVICES } from "./services.js";
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Who We Are", href: "/about" },
-  {
-    label: "Services",
-    href: "/services",
-    mega: true,
-  },
+  { label: "Services", href: "/services", mega: "services" },
+  { label: "Industries", href: "/industries", mega: "industries" },
+  { label: "Locations", href: "/locations", mega: "locations" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "Packages", href: "/packages" },
   { label: "Resources", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
+
+/** Promo cards shown inside each mega menu (4Core style) */
+export const MEGA_PROMOS = {
+  services: {
+    statLabel: "Traffic Growth",
+    statValue: "+312%",
+    title: "Need Help Growing Your Business?",
+    text: "Get a free SEO audit and discover opportunities to increase rankings, traffic and leads.",
+  },
+  industries: {
+    statLabel: "Industry Growth",
+    statValue: "+284%",
+    title: "Need Industry-Specific SEO?",
+    text: "Get a customized SEO strategy designed for your industry and growth goals.",
+  },
+  locations: {
+    statLabel: "Global Rankings",
+    statValue: "+264%",
+    title: "Need SEO Services In Your Market?",
+    text: "Generate more traffic, leads and customers through customized SEO strategies designed for your location.",
+  },
+};
 
 /** Mega-menu services (subset + extras matching the brief) */
 export const NAV_SERVICES = [
@@ -94,6 +115,8 @@ export const FOOTER_NAV = {
     { label: "About", href: "/about" },
     { label: "Our Team", href: "/about#team" },
     { label: "Case Studies", href: "/case-studies" },
+    { label: "SEO Packages", href: "/packages" },
+    { label: "Industries", href: "/industries" },
     { label: "Reviews", href: "/#testimonials" },
     { label: "Contact", href: "/contact" },
   ],

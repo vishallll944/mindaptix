@@ -1,47 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, X } from "lucide-react";
-import { useState } from "react";
+import { Mail, Phone, ArrowRight } from "lucide-react";
 import { SITE } from "@/data/site.js";
 
-export type AnnouncementBarProps = {
-  message?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  dismissible?: boolean;
-};
-
-export function AnnouncementBar({
-  message = SITE.announcement,
-  ctaLabel = SITE.announcementCta,
-  ctaHref = "/contact",
-  dismissible = true,
-}: AnnouncementBarProps) {
-  const [visible, setVisible] = useState(true);
-
-  if (!visible) return null;
-
+export function AnnouncementBar() {
   return (
-    <div className="announcement-bar" role="region" aria-label="Announcement">
+    <div className="announcement-bar" role="region" aria-label="Contact announcement">
       <div className="announcement-bar__text">
         <span className="announcement-bar__dot" aria-hidden />
-        <span>{message}</span>
+        <span>Helping Businesses Turn Search Visibility Into Leads, Sales &amp; Revenue</span>
       </div>
-      <Link href={ctaHref} className="announcement-bar__cta">
-        {ctaLabel}
+      <div className="announcement-bar__contacts">
+        <a href={SITE.emailHref} className="announcement-bar__contact">
+          <Mail size={14} aria-hidden />
+          {SITE.email}
+        </a>
+        <a href={SITE.phoneHref} className="announcement-bar__contact">
+          <Phone size={14} aria-hidden />
+          {SITE.phone}
+        </a>
+      </div>
+      <Link href="/contact" className="announcement-bar__cta">
+        Get Free SEO Audit
         <ArrowRight size={14} aria-hidden />
       </Link>
-      {dismissible ? (
-        <button
-          type="button"
-          className="announcement-bar__close"
-          aria-label="Dismiss announcement"
-          onClick={() => setVisible(false)}
-        >
-          <X size={14} />
-        </button>
-      ) : null}
     </div>
   );
 }

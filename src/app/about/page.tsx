@@ -12,7 +12,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: `Who We Are | ${SITE.name}`,
   description:
-    "Meet the 4Core Digital team. AI-powered SEO strategists combining the 4Core Growth Framework with human expertise.",
+    "Meet the Mindaptix Digital team. AI-powered SEO strategists combining a four-pillar growth framework with human expertise.",
 };
 
 export default function AboutPage() {
@@ -45,7 +45,7 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="Our story"
               title="Strategy before tactics. Revenue before vanity metrics."
-              subtitle="4Core Digital started with a simple belief: SEO should grow the business, not just rankings. That means research-led roadmaps, technical excellence, authoritative content, and conversion systems that work together."
+              subtitle="Mindaptix Digital started with a simple belief: SEO should grow the business, not just rankings. That means research-led roadmaps, technical excellence, authoritative content, and conversion systems that work together."
             />
             <div className="about-story__copy">
               <p className="lead">

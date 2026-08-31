@@ -1,18 +1,12 @@
 "use client";
 
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-} from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
-export type AnimatedCounterProps = {
+type AnimatedCounterProps = {
   value: number;
-  prefix?: string;
   suffix?: string;
+  prefix?: string;
   decimals?: number;
   duration?: number;
   className?: string;
@@ -20,49 +14,38 @@ export type AnimatedCounterProps = {
 
 export function AnimatedCounter({
   value,
-  prefix = "",
   suffix = "",
+  prefix = "",
   decimals = 0,
-  duration: _duration = 1.4,
+  duration = 2000,
   className = "",
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
-  const prefersReducedMotion = useReducedMotion();
-  const motionValue = useMotionValue(0);
-  const spring = useSpring(motionValue, {
-    stiffness: 80,
-    damping: 22,
-  });
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      motionValue.set(value);
-      return;
-    }
-    if (inView) {
-      motionValue.set(value);
-    }
-  }, [inView, value, motionValue, prefersReducedMotion]);
+    if (!inView) return;
 
-  useEffect(() => {
-    const unsubscribe = spring.on("change", (latest) => {
-      if (!ref.current) return;
-      const formatted =
-        decimals > 0 ? latest.toFixed(decimals) : Math.round(latest).toLocaleString();
-      ref.current.textContent = `${prefix}${formatted}${suffix}`;
-    });
-    return unsubscribe;
-  }, [spring, prefix, suffix, decimals]);
+    const start = performance.now();
+    const animate = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(value * eased);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [inView, value, duration]);
 
-  const fallback =
-    decimals > 0 ? value.toFixed(decimals) : Math.round(value).toLocaleString();
+  const formatted =
+    decimals > 0 ? display.toFixed(decimals) : Math.round(display).toString();
 
   return (
-    <motion.span ref={ref} className={`animated-counter${className ? ` ${className}` : ""}`}>
+    <span ref={ref} className={className}>
       {prefix}
-      {fallback}
+      {formatted}
       {suffix}
-    </motion.span>
+    </span>
   );
 }

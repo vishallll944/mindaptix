@@ -5,24 +5,24 @@
 :root {
   --primary: #111111;
   --secondary: #666666;
-  --accent: #8be34a;
-  --accent-dark: #6bc42e;
+  --accent: #7c3aed;
+  --accent-dark: #6d28d9;
   --background: #ffffff;
   --surface: #f7f8f5;
-  --dark: #0b0d0c;
+  --dark: #2e1065;
   --border: #e6e8e4;
   --muted: #8a8f87;
 
   --white: #ffffff;
   --black: #000000;
-  --accent-soft: rgba(139, 227, 74, 0.12);
-  --accent-glow: rgba(139, 227, 74, 0.35);
-  --dark-elevated: #141816;
+  --accent-soft: rgba(124, 58, 237, 0.12);
+  --accent-glow: rgba(124, 58, 237, 0.35);
+  --dark-elevated: #40199c;
   --shadow-sm: 0 1px 2px rgba(11, 13, 12, 0.04), 0 1px 3px rgba(11, 13, 12, 0.06);
   --shadow-md: 0 4px 16px rgba(11, 13, 12, 0.06), 0 2px 6px rgba(11, 13, 12, 0.04);
   --shadow-lg: 0 12px 40px rgba(11, 13, 12, 0.1), 0 4px 12px rgba(11, 13, 12, 0.06);
   --shadow-xl: 0 24px 64px rgba(11, 13, 12, 0.14);
-  --shadow-accent: 0 8px 28px rgba(139, 227, 74, 0.35);
+  --shadow-accent: 0 8px 28px rgba(124, 58, 237, 0.35);
 
   --radius-sm: 10px;
   --radius-md: 16px;
@@ -40,7 +40,7 @@
   --duration: 0.28s;
   --duration-slow: 0.45s;
 
-  --focus-ring: 0 0 0 3px rgba(139, 227, 74, 0.45);
+  --focus-ring: 0 0 0 3px rgba(124, 58, 237, 0.45);
 }
 
 /* ---------- Reset ---------- */
@@ -248,6 +248,14 @@ a.btn:focus-visible {
   justify-content: center;
 }
 
+.section-header--dark .section-title {
+  color: var(--white);
+}
+
+.section-header--dark .section-subtitle {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .lead {
   font-size: 1.125rem;
   line-height: 1.7;
@@ -324,7 +332,7 @@ a.btn:focus-visible {
 }
 
 .btn-secondary:hover {
-  background: #1a1e1c;
+  background: #4c1d95;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
@@ -388,7 +396,7 @@ a.btn:focus-visible {
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(139, 227, 74, 0.35);
+  border-color: rgba(124, 58, 237, 0.35);
 }
 
 .card-flat {
@@ -410,7 +418,7 @@ a.btn:focus-visible {
 
 .card-glass:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(139, 227, 74, 0.4);
+  border-color: rgba(124, 58, 237, 0.4);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
@@ -630,7 +638,7 @@ a.btn:focus-visible {
 }
 
 .badge-dark {
-  background: rgba(139, 227, 74, 0.15);
+  background: rgba(124, 58, 237, 0.15);
   color: var(--accent);
 }
 
@@ -682,10 +690,10 @@ a.btn:focus-visible {
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(139, 227, 74, 0.45);
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.45);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(139, 227, 74, 0);
+    box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
   }
 }
 

@@ -31,8 +31,8 @@ export const FAQS = [
   },
   {
     id: "what-does-4core-do",
-    q: "What does 4Core Digital do?",
-    a: "4Core Digital helps businesses grow through SEO, AI SEO, local SEO, technical SEO, eCommerce SEO, content strategy, link building and paid advertising — improving Google visibility and turning traffic into leads, bookings or sales.",
+    q: "What does Mindaptix Digital do?",
+    a: "Mindaptix Digital helps businesses grow through SEO, AI SEO, local SEO, technical SEO, eCommerce SEO, content strategy, link building and paid advertising — improving Google visibility and turning traffic into leads, bookings or sales.",
   },
   {
     id: "seo-right-for-me",

@@ -46,6 +46,7 @@ export type ServiceCardProps = {
   description: string;
   href: string;
   icon?: string;
+  featured?: boolean;
   className?: string;
 };
 
@@ -55,12 +56,16 @@ export function ServiceCard({
   description,
   href,
   icon = "Search",
+  featured = false,
   className = "",
 }: ServiceCardProps) {
   const Icon = ICONS[icon] ?? Search;
 
   return (
-    <Link href={href} className={`service-card${className ? ` ${className}` : ""}`}>
+    <Link
+      href={href}
+      className={`service-card${featured ? " service-card--featured" : ""}${className ? ` ${className}` : ""}`}
+    >
       <div className="service-card__top">
         <span className="service-card__icon" aria-hidden>
           <Icon />
@@ -70,7 +75,7 @@ export function ServiceCard({
       <h3 className="service-card__title">{title}</h3>
       <p className="service-card__desc">{description}</p>
       <span className="service-card__link">
-        Learn More
+        Learn more
         <ArrowRight aria-hidden />
       </span>
     </Link>
