@@ -30,7 +30,7 @@ export const FAQS = [
     a: "No. We combine AI SEO with proven SEO fundamentals including technical SEO, content strategy, local SEO and authority building.",
   },
   {
-    id: "what-does-4core-do",
+    id: "what-does-mindaptix-do",
     q: "What does Mindaptix Digital do?",
     a: "Mindaptix Digital helps businesses grow through SEO, AI SEO, local SEO, technical SEO, eCommerce SEO, content strategy, link building and paid advertising — improving Google visibility and turning traffic into leads, bookings or sales.",
   },

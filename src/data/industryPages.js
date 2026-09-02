@@ -8,7 +8,7 @@ export const INDUSTRY_STATS = [
   { value: "Top Rated", label: "Freelancer" },
 ];
 
-/** Fully written industry pages (4Core-style long-form) */
+/** Fully written industry pages (long-form) */
 const DETAILED_PAGES = {
   "real-estate": {
     slug: "real-estate",

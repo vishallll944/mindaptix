@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "flagcdn.com", pathname: "/**" },
       { protocol: "https", hostname: "api.dicebear.com", pathname: "/**" },
       { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
-      { protocol: "https", hostname: "4coredigital.com", pathname: "/**" },
     ],
   },
 };

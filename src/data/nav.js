@@ -12,7 +12,7 @@ export const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-/** Promo cards shown inside each mega menu (4Core style) */
+/** Promo cards shown inside each mega menu */
 export const MEGA_PROMOS = {
   services: {
     statLabel: "Traffic Growth",

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* 4Core design system */
+/* Mindaptix Digital design system */
 @import "../styles/globals.css";
 @import "../styles/hero.css";
 @import "../styles/navbar.css";
@@ -24,7 +24,7 @@ body {
   overflow-x: clip;
 }
 
-/* Light hero like 4Core reference */
+/* Light hero */
 .hero {
   background: linear-gradient(180deg, #ffffff 0%, #faf9f7 55%, #f5f3ef 100%);
   color: var(--primary);

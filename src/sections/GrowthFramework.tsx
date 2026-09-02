@@ -11,7 +11,7 @@ export function GrowthFramework() {
         <FadeIn>
           <SectionHeading
             eyebrow="Our methodology"
-            title="The 4Core AI Growth Framework"
+            title="The Mindaptix AI Growth Framework"
             subtitle="Four connected pillars that turn search visibility into pipeline, customers and revenue."
           />
         </FadeIn>
