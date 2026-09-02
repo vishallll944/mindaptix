@@ -2,11 +2,11 @@ import { SERVICES } from "./services.js";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Who We Are", href: "/about" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services", mega: "services" },
   { label: "Industries", href: "/industries", mega: "industries" },
   { label: "Locations", href: "/locations", mega: "locations" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Cases", href: "/case-studies" },
   { label: "Packages", href: "/packages" },
   { label: "Resources", href: "/blog" },
   { label: "Contact", href: "/contact" },
