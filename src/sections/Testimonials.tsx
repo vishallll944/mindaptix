@@ -1,6 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
+import { SITE } from "@/data/site.js";
 import { TESTIMONIALS, TESTIMONIALS_SUMMARY } from "@/data/testimonials.js";
 import { ReviewCard } from "@/components/cards/ReviewCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -14,7 +15,7 @@ export function Testimonials() {
           <SectionHeading
             eyebrow="Client voices"
             title="What growth feels like when search starts working"
-            subtitle="Verified feedback from brands that trusted Mindaptix Digital with SEO and AI visibility."
+            subtitle={`Verified feedback from brands that trusted ${SITE.name} with SEO and AI visibility.`}
           />
           <div className="testimonials__rating">
             <p className="testimonials__score">{TESTIMONIALS_SUMMARY.score.toFixed(1)}</p>

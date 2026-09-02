@@ -1,5 +1,6 @@
 "use client";
 
+import { SITE } from "@/data/site.js";
 import { FRAMEWORK } from "@/data/framework.js";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -11,7 +12,7 @@ export function GrowthFramework() {
         <FadeIn>
           <SectionHeading
             eyebrow="Our methodology"
-            title="The Mindaptix AI Growth Framework"
+            title={`The ${SITE.shortName} AI Growth Framework`}
             subtitle="Four connected pillars that turn search visibility into pipeline, customers and revenue."
           />
         </FadeIn>
