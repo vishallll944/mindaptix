@@ -130,6 +130,11 @@
   width: auto;
 }
 
+.navbar__logo-suffix {
+  font-weight: 400;
+  color: var(--secondary);
+}
+
 .navbar__logo:hover .navbar__logo-mark {
   background: #115e59;
 }
@@ -139,6 +144,8 @@
   display: none;
   align-items: center;
   gap: 0.15rem;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .navbar__link {
@@ -151,6 +158,8 @@
   font-weight: 600;
   color: var(--secondary);
   border-radius: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: color var(--duration) var(--ease), background var(--duration) var(--ease);
 }
 
@@ -230,6 +239,7 @@
 /* ---------- Mega menu ---------- */
 .navbar__item {
   position: relative;
+  flex-shrink: 0;
 }
 
 /* Mega menus anchor to the navbar (not the item) so their hidden
@@ -560,5 +570,35 @@
 
   .navbar__toggle {
     display: none;
+  }
+}
+
+/* Compact nav so multi-word labels stay on one line */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .navbar__inner {
+    gap: 0.75rem;
+    padding-inline: 1rem;
+  }
+
+  .navbar__logo {
+    font-size: 1rem;
+  }
+
+  .navbar__logo-suffix {
+    display: none;
+  }
+
+  .navbar__nav {
+    gap: 0.05rem;
+  }
+
+  .navbar__link {
+    padding: 0.5rem 0.55rem;
+    font-size: 0.8125rem;
+  }
+
+  .navbar__cta {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.8125rem;
   }
 }

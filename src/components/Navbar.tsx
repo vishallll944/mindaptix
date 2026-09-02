@@ -147,7 +147,7 @@ export function Navbar() {
             <span className="navbar__logo-mark">M</span>
             <span>
               {SITE.shortName}
-              <span style={{ fontWeight: 400, color: "var(--secondary)" }}> Digital</span>
+              <span className="navbar__logo-suffix"> Digital</span>
             </span>
           </Link>
 

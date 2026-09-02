@@ -35,6 +35,8 @@ export function Blog() {
                 read={post.read}
                 href={post.href}
                 date={post.date}
+                image={post.image}
+                excerpt={post.excerpt}
               />
             </FadeIn>
           ))}

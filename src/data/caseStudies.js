@@ -53,7 +53,7 @@ export const CASE_STUDIES = [
     summary:
       "India's leading gift and home decor Shopify brand moved from invisible to page-one dominance across high-intent product and occasion keywords.",
     image:
-      "https://images.unsplash.com/photo-1616046229475-63f832c4d40f?w=800&q=80",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
     pdfHref: "/case-studies/Nestasia-Shopify-SEO-Case-Study-Jyoti.pdf",
     keywords: [
       { keyword: "ceramic tiffin box", baseline: "Not in 100", ranking: 1 },

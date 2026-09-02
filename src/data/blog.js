@@ -10,6 +10,8 @@ export const BLOG = [
     read: "14 min read",
     date: "2026-01-12",
     href: "/blog/what-is-ai-seo",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&q=80",
   },
   {
     id: "local-seo-2026",
@@ -21,6 +23,8 @@ export const BLOG = [
     read: "16 min read",
     date: "2026-02-03",
     href: "/blog/local-seo-for-small-business-2026",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80",
   },
   {
     id: "optimize-ai-overviews",
@@ -32,5 +36,7 @@ export const BLOG = [
     read: "16 min read",
     date: "2026-02-18",
     href: "/blog/how-to-optimize-content-for-chatgpt-google-ai-overviews-2026",
+    image:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=80",
   },
 ];

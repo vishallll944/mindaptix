@@ -866,19 +866,23 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-width: 0;
   border-radius: var(--radius-xl);
   background: var(--white);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
+  text-decoration: none;
   transition:
     transform var(--duration) var(--ease),
-    box-shadow var(--duration) var(--ease);
+    box-shadow var(--duration) var(--ease),
+    border-color var(--duration) var(--ease);
 }
 
 .blog-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 18px 40px rgba(13, 148, 136, 0.14);
+  border-color: rgba(13, 148, 136, 0.35);
 }
 
 .blog-card__media {
@@ -886,6 +890,23 @@
   aspect-ratio: 16 / 10;
   background: linear-gradient(135deg, var(--dark) 0%, #134e4a 50%, #115e59 100%);
   overflow: hidden;
+}
+
+.blog-card__image {
+  object-fit: cover;
+  transition: transform 0.55s var(--ease);
+}
+
+.blog-card:hover .blog-card__image {
+  transform: scale(1.05);
+}
+
+.blog-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(12, 56, 64, 0.55) 100%);
+  pointer-events: none;
 }
 
 .blog-card__media-pattern {
@@ -907,12 +928,31 @@
   letter-spacing: -0.04em;
 }
 
+.blog-card__media-tag {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
 .blog-card__body {
   padding: 1.35rem;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
   flex: 1;
+  min-width: 0;
 }
 
 .blog-card__meta {
@@ -936,20 +976,47 @@
   font-weight: 500;
 }
 
+.blog-card__read::before {
+  content: "·";
+  margin-right: 0.75rem;
+  color: var(--border);
+}
+
 .blog-card__title {
   font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.35;
   color: var(--primary);
-  flex: 1;
+  transition: color var(--duration) var(--ease);
+}
+
+.blog-card--featured .blog-card__title {
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  line-height: 1.2;
+}
+
+.blog-card:hover .blog-card__title {
+  color: var(--accent-dark);
+}
+
+.blog-card__excerpt {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--secondary);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .blog-card__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  gap: 1rem;
+  margin-top: auto;
   padding-top: 0.85rem;
   border-top: 1px solid var(--border);
 }
@@ -957,6 +1024,16 @@
 .blog-card__date {
   font-size: 0.75rem;
   color: var(--muted);
+  font-weight: 600;
+}
+
+.blog-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--accent-dark);
 }
 
 .blog-card__arrow {
@@ -967,14 +1044,38 @@
   border-radius: 10px;
   background: var(--surface);
   color: var(--primary);
-  transition: background var(--duration) var(--ease), color var(--duration) var(--ease),
+  transition:
+    background var(--duration) var(--ease),
+    color var(--duration) var(--ease),
     transform var(--duration) var(--ease);
 }
 
 .blog-card:hover .blog-card__arrow {
   background: var(--accent);
-  color: var(--dark);
-  transform: translateX(2px);
+  color: #fff;
+  transform: translate(2px, -2px);
+}
+
+/* Featured blog card — horizontal on desktop */
+.blog-card--featured {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .blog-card--featured {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+
+  .blog-card--featured .blog-card__media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .blog-card--featured .blog-card__body {
+    padding: 2rem 2.25rem;
+    justify-content: center;
+  }
 }
 
 /* ---------- Stats card (generic) ---------- */

@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  allowedDevOrigins: ["192.168.1.16:3000", "192.168.1.16:3001"],
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",

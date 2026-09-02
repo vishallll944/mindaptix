@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import {
   ArrowRight,
   Check,
@@ -21,8 +20,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { PROCESS } from "@/data/framework.js";
-import { CTASection } from "@/components/CTASection";
-import { FadeIn } from "@/components/ui/FadeInView";
+import { Button } from "@/components/ui/Button";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FinalCTA } from "@/sections/FinalCTA";
 import { useIsMobile, useReducedMotion } from "@/lib/hooks";
 
 const ServiceHeroScene = dynamic(
@@ -30,8 +31,10 @@ const ServiceHeroScene = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-[280px] items-center justify-center sm:h-[320px] lg:h-[380px]">
-        <div className="h-14 w-14 animate-pulse rounded-full bg-gradient-to-br from-blue-100 to-teal-100" />
+      <div className="svc-hero__fallback">
+        <div className="svc-hero__icon" aria-hidden>
+          <Sparkles size={36} />
+        </div>
       </div>
     ),
   },
@@ -84,169 +87,121 @@ export function ServiceDetailView({
 
   return (
     <main>
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20">
-        <div className="absolute inset-0 gradient-soft" />
-        <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-200/30 blur-3xl" />
-        <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-teal-200/30 blur-3xl" />
-
-        <div className="relative mx-auto max-w-7xl px-5">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-            <FadeIn>
-              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent-blue">
-                <Icon className="h-3.5 w-3.5" />
+      <section className="svc-hero">
+        <div className="container">
+          <div className="svc-hero__grid">
+            <FadeIn className="svc-hero__copy">
+              <p className="eyebrow">
+                <Icon size={14} aria-hidden />
                 Service
-              </span>
-              <h1 className="text-4xl font-extrabold tracking-tight text-text-primary md:text-5xl lg:text-6xl">
-                {title}
-              </h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-text-secondary">{desc}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-2xl bg-accent-blue px-7 py-3.5 text-sm font-semibold text-white shadow-glow transition-all hover:bg-blue-700"
-                >
+              </p>
+              <h1 className="svc-hero__title">{title}</h1>
+              <p className="svc-hero__desc">{desc}</p>
+              <div className="svc-hero__actions">
+                <Button href="/contact">
                   Get Free Audit
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-7 py-3.5 text-sm font-semibold text-text-primary transition-all hover:border-accent-blue/30 hover:shadow-soft"
-                >
+                  <ArrowRight className="btn-arrow" aria-hidden />
+                </Button>
+                <Button href="/services" variant="outline">
                   All services
-                </Link>
+                </Button>
               </div>
             </FadeIn>
 
-            <FadeIn delay={0.1}>
-              <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/50 p-3 shadow-glow backdrop-blur-sm">
-                {show3d ? (
-                  <ServiceHeroScene tags={tags} />
-                ) : (
-                  <div className="flex h-[280px] flex-col items-center justify-center gap-4 rounded-[1.5rem] bg-gradient-to-br from-blue-50 to-teal-50 sm:h-[320px]">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-blue to-accent-purple text-white shadow-lg">
-                      <Icon className="h-10 w-10" />
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-2 px-4">
-                      {tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-blue-100 bg-white px-3 py-1 text-xs font-semibold text-accent-blue"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+            <FadeIn delay={0.08} className="svc-hero__visual">
+              {show3d ? (
+                <ServiceHeroScene tags={tags} />
+              ) : (
+                <div className="svc-hero__fallback">
+                  <div className="svc-hero__icon" aria-hidden>
+                    <Icon size={36} />
                   </div>
-                )}
-              </div>
+                  <div className="svc-hero__tags">
+                    {tags.map((tag) => (
+                      <span key={tag} className="svc-hero__tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Outcomes + Snapshot */}
-      <section className="pb-20">
-        <div className="mx-auto max-w-7xl px-5">
-          <div className="grid gap-8 lg:grid-cols-5">
-            <FadeIn className="lg:col-span-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-accent-blue">
-                Outcomes
-              </span>
-              <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-text-primary md:text-4xl">
-                Why teams choose our {title}
-              </h2>
-              <p className="mt-3 max-w-xl text-text-secondary">
-                Practical benefits you can feel in visibility, pipeline, and reporting — not just
-                keyword dashboards.
-              </p>
-
-              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                {benefits.map((item, i) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-soft transition-all hover:border-blue-100 hover:shadow-glow"
-                  >
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-blue to-accent-purple text-white">
-                      <Check className="h-4 w-4" />
+      <section className="section">
+        <div className="container">
+          <div className="svc-outcomes__grid">
+            <FadeIn>
+              <SectionHeading
+                eyebrow="Outcomes"
+                title={`Why teams choose our ${title}`}
+                subtitle="Practical benefits you can feel in visibility, pipeline, and reporting — not just keyword dashboards."
+              />
+              <ul className="svc-benefits">
+                {benefits.map((item) => (
+                  <li key={item} className="svc-benefit">
+                    <span className="svc-benefit__icon" aria-hidden>
+                      <Check size={16} />
                     </span>
-                    <span className="text-sm font-medium leading-relaxed text-text-primary">
-                      {item}
-                    </span>
+                    <span className="svc-benefit__text">{item}</span>
                   </li>
                 ))}
               </ul>
             </FadeIn>
 
-            <FadeIn delay={0.1} className="lg:col-span-2">
-              <div className="h-full rounded-3xl border border-slate-100 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 text-white shadow-xl">
-                <span className="text-xs font-bold uppercase tracking-widest text-blue-300">
-                  Engagement snapshot
-                </span>
-                <h3 className="mt-3 text-2xl font-extrabold">Built for measurable growth</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                  We start with discovery, prioritize the highest-ROI work for {title}, then execute
-                  and iterate with transparent reporting.
+            <FadeIn delay={0.08}>
+              <aside className="svc-snapshot">
+                <p className="svc-snapshot__eyebrow">Engagement snapshot</p>
+                <h2 className="svc-snapshot__title">Built for measurable growth</h2>
+                <p className="svc-snapshot__text">
+                  We start with discovery, prioritize the highest-ROI work for {title}, then
+                  execute and iterate with transparent reporting.
                 </p>
-                <div className="mt-8 space-y-3">
-                  <Link
-                    href="/contact"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent-blue px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-blue-600"
-                  >
+                <div className="svc-snapshot__actions">
+                  <Button href="/contact">
                     Start with an audit
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/case-studies"
-                    className="flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/20"
-                  >
+                    <ArrowRight className="btn-arrow" aria-hidden />
+                  </Button>
+                  <Button href="/case-studies" variant="secondary" className="btn-on-dark">
                     See case studies
-                  </Link>
+                  </Button>
                 </div>
-              </div>
+              </aside>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="bg-bg-secondary/60 py-20 md:py-24">
-        <div className="mx-auto max-w-7xl px-5">
+      <section className="section svc-process">
+        <div className="container">
           <FadeIn>
-            <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-bold uppercase tracking-widest text-accent-cyan">
-                Process
-              </span>
-              <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-text-primary md:text-4xl">
-                How we deliver
-              </h2>
-              <p className="mt-3 text-text-secondary">
-                A clear path from research to scale — consistent across every service engagement.
-              </p>
-            </div>
+            <SectionHeading
+              align="center"
+              eyebrow="Process"
+              title="How we deliver"
+              subtitle="A clear path from research to scale — consistent across every service engagement."
+            />
           </FadeIn>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS.map((step, i) => (
-              <FadeIn key={step.step} delay={i * 0.08}>
-                <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-blue-100 hover:shadow-glow">
-                  <div className="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gradient-to-br from-blue-50 to-teal-50 opacity-0 transition-opacity group-hover:opacity-100" />
-                  <span className="text-xs font-bold text-accent-blue/70">STEP {step.step}</span>
-                  <h3 className="mt-3 text-lg font-bold text-text-primary">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-text-secondary">{step.desc}</p>
-                  <div className="mt-5 h-1 w-10 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple opacity-0 transition-opacity group-hover:opacity-100" />
-                </div>
+          <div className="workflow-steps">
+            {PROCESS.map((step, index) => (
+              <FadeIn key={step.step} delay={index * 0.06}>
+                <article className="workflow-step">
+                  <p className="workflow-step__num">{step.step}</p>
+                  <h3 className="workflow-step__title">{step.title}</h3>
+                  <p className="workflow-step__desc">{step.desc}</p>
+                </article>
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection
+      <FinalCTA
         title={`Ready to grow with ${title}?`}
         subtitle="Get a free audit focused on your market, competitors, and conversion goals."
-        secondaryLabel="Browse all services"
-        secondaryHref="/services"
       />
     </main>
   );

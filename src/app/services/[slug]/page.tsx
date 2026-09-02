@@ -17,7 +17,7 @@ function getBenefits(title: string, desc: string) {
     desc,
     `A clear roadmap for ${title} priorities — not random one-off fixes`,
     "Measurement tied to rankings, traffic, leads, and revenue signals",
-    "Aligned with the 4Core AI Growth Framework across search and AI platforms",
+    "Aligned with the Mindaptix AI Growth Framework across search and AI platforms",
     "White-hat execution designed for durable, compounding results",
   ];
 }
